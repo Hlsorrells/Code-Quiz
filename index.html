@@ -15,6 +15,8 @@
 
 <body>
 
+    <!-- Need to finish the leaderboard link and the timer -->
+
     <!-- Menu Bar -->
     <nav>
         <div class="d-flex bd-highlight mb-3 justify-content-between">
@@ -30,52 +32,50 @@
         <!-- Flexbox Container -->
         <div class="d-flex mt-5 justify-content-center">
             <!-- Card -->
-            <div class="card">
-                <div class="card" style="width: 18rem;">
-                    <!-- Image Cap -->
-                    <img src="http://placekitten.com/200/200" class="card-img-top" alt="Placeholder">
-                    <div class="card-body">
-                        <!-- Card Title -->
-                        <h5 class="card-title">Card title</h5>
-                        <!-- Card Text -->
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
-                            the
-                            card's content.</p>
-                    </div>
-                    <!-- Answer Buttons -->
-                    <div class="btn-group-vertical" role="group" style="width: fit-content; margin-left: 10px;">
-                        <button type="button" class="btn btn-primary btn-sm" id="button1">First Choice</button><br>
-                        <button type="button" class="btn btn-primary btn-sm" id="button2">Second Choice</button><br>
-                        <button type="button" class="btn btn-primary btn-sm" id="button3">Third Choice</button><br>
-                        <button type="button" class="btn btn-primary btn-sm" id="button4">Fourth Choice</button><br>
-                    </div>
+            <div class="card" style="width: 18rem;">
 
-                    <div class="card-body">
-                        <a href="#" class="card-link">Card link</a>
-                        <a href="#" class="card-link">Another link</a>
-                    </div>
+                <!-- Image Cap -->
+                <img src="http://placekitten.com/200/200" class="card-img-top" alt="Placeholder">
+                <div class="card-body">
+
+                    <!-- Card Title -->
+                    <h5 class="card-title" id = "card-title">Welcome to Rocky Mountain Trivia!</h5>
+
+                    <!-- Card Text -->
+                    <p class="card-text" id="card-text">Just how well do you know the states that make up the Rocky Mountain Region of
+                        the United States? You have 2 minutes to answer 10 questions about the states in this region. Be
+                        careful not to pick the wrong answer as it will cost you 10 seconds off the timer! Good Luck!!
+                    </p>
+                </div>
+
+                <!-- Answer Buttons -->
+                <div class="btn-group-vertical" role="group" style="width: fit-content; margin-left: 10px;">
+                </div>
+
+                <!-- Start Button -->
+                <div class="btn-group" role="group" style="width: fit-content; margin: 10px; align-self: center;">
+                    <button type="button" class="btn btn-primary btn-lg btn-block" id="start">Start Button</button>
                 </div>
             </div>
+
         </div>
         <br><br>
+        <!-- Footer -->
 
-    </div>
+        <!-- Javascript Links to Bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 
-    <!-- Footer -->
+        <!-- Javascript Link -->
+        <script src="script.js"></script>
 
-    <!-- Javascript Link -->
-    <script src="script.js"></script>
-
-    <!-- Javascript Links to Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
 
 
 </body>
