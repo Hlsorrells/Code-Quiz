@@ -26,9 +26,9 @@ var questionArray = [
         image: "http://placekitten.com/200/200"
     },
     {
-        question: "Which state was the first to give women the right to vote?",
-        answers: ["a. Utah", "b. Wyoming", "c. Idaho", "d. Colorado"],
-        correct: "b. Wyoming",
+        question: "Which state has the world's first alpine skiing chairlift?",
+        answers: ["a. Montana", "b. Idaho", "c. Utah", "d. Colorado"],
+        correct: "b. Idaho",
         image: "http://placekitten.com/200/200"
     },
     {
@@ -44,9 +44,9 @@ var questionArray = [
         image: "http://placekitten.com/200/200"
     },
     {
-        question: "Which state has the world's first alpine skiing chairlift?",
-        answers: ["a. Montana", "b. Idaho", "c. Utah", "d. Colorado"],
-        correct: "b. Idaho",
+        question: "Which state was the first to give women the right to vote?",
+        answers: ["a. Utah", "b. Wyoming", "c. Idaho", "d. Colorado"],
+        correct: "b. Wyoming",
         image: "http://placekitten.com/200/200"
     },
 ];
