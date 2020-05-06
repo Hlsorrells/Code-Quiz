@@ -4,18 +4,19 @@ var imageEl = document.querySelector(".card-img-top");
 var cardTitleEl = document.querySelector(".card-title");
 var cardTextEl = document.querySelector(".card-text");
 var buttonArrayEl = document.querySelector(".btn-group-vertical");
-var button1El = document.querySelector("#button1");
-var button2El = document.querySelector("#button2");
-var button3El = document.querySelector("#button3");
-var button4El = document.querySelector("#button4");
+var buttonEl1 = document.querySelector("#button1");
+var buttonEl2 = document.querySelector("#button2");
+var buttonEl3 = document.querySelector("#button3");
+var buttonEl4 = document.querySelector("#button4");
 var startBtn = document.querySelector("#start");
 var timerEL = document.querySelector("#timer");
 
 // Incremental counter index variables
 var secondsLeft = 60;
 var questionIndex = 0;
-var currentScore = 0;
-var score = localStorage.getItem("score");
+var timer;
+var score;
+var user;
 
 // Array variable to contain the question objects
 var questionArray = [
@@ -52,38 +53,60 @@ var questionArray = [
 ];
 
 // Timer function set to 1 second interval
-// function startTimer() {
-//     div.appendChild(timerEL);
-//     var timerInterval = setInterval(function () {
-//         secondsLeft--;
-//         timerEl.textContent = secondsLeft + " seconds left!";
-
-//         if (secondsLeft === 0) {
-//             clearInterval(timerInterval);
-//             // sends to high score
-//             endGame();
-//         }
-//     }, 1000);
-// }
+function startTimer() {
+    timer = setInterval(function(){
+        secondsLeft--;
+        timerEL.textContent = "Seconds Left: " + secondsLeft;
+        if(secondsLeft === 0){
+            endGame()
+        };
+    }, 1000);
+};
 
 // End game function
 function endGame() {
-    console.log(currentScore);
-    currentScore.textContent = score;
-    localStorage.setItem("score", score);
-}
+    // Resets the timer interval
+    clearInterval(timer);
+    // Prompt for user initials
+    user = prompt("Please enter your initials here:");
+    // Sets the seconds left as the final score
+    score = secondsLeft;
+    // Stores values of user and score to localStorage
+    localStorage.setItem("score", secondsLeft);
+    localStorage.setItem("user", user);
+};
+
+// Grade whether the user response is true
+function displayGrade(event) {
+    console.log(questionIndex);
+    var correctAnswer = questionArray[questionIndex].correct;
+    console.log(correctAnswer);
+    if (event.target.textContent === correctAnswer) {
+        console.log("correct")
+        navigate();
+    } else {
+        // Adjust timer by -10 seconds
+        secondsLeft -= 10;
+        navigate();
+    }
+};
 
 // Game Play function
 function game() {
-
+    console.log(questionIndex, "current index");
     // Hide the start button
     document.querySelector("#start").style.display = "none";
 
     // Add style to variables
-    button1El.classList.add("d-block");
-    button2El.classList.add("d-block");
-    button3El.classList.add("d-block");
-    button4El.classList.add("d-block");
+    buttonEl1.classList.remove("d-none");
+    buttonEl2.classList.remove("d-none");
+    buttonEl3.classList.remove("d-none");
+    buttonEl4.classList.remove("d-none");
+    buttonEl1.classList.add("d-block");
+    buttonEl2.classList.add("d-block");
+    buttonEl3.classList.add("d-block");
+    buttonEl4.classList.add("d-block");
+
 
     // Clear variable content
     imageEl.innerHTML = "";
@@ -93,42 +116,26 @@ function game() {
     console.log(questionIndex);
     // Add content to variables
     imageEl.setAttribute("src", questionArray[questionIndex].image);
-    cardTitleEl.innerHTML = "Question #" + (questionIndex + 1);
+    var temp = questionIndex
+    cardTitleEl.innerHTML = "Question #" + (temp + 1);
     cardTextEl.textContent = questionArray[questionIndex].question;
-    button1El.textContent = questionArray[questionIndex].answers[0];
-    button2El.textContent = questionArray[questionIndex].answers[1];
-    button3El.textContent = questionArray[questionIndex].answers[2];
-    button4El.textContent = questionArray[questionIndex].answers[3];
+    buttonEl1.textContent = questionArray[questionIndex].answers[0];
+    buttonEl2.textContent = questionArray[questionIndex].answers[1];
+    buttonEl3.textContent = questionArray[questionIndex].answers[2];
+    buttonEl4.textContent = questionArray[questionIndex].answers[3];
 
     // Append variable content to DOM elements
-    buttonArrayEl.appendChild(button1El);
-    buttonArrayEl.appendChild(button2El);
-    buttonArrayEl.appendChild(button3El);
-    buttonArrayEl.appendChild(button4El);
+    buttonArrayEl.appendChild(buttonEl1);
+    buttonArrayEl.appendChild(buttonEl2);
+    buttonArrayEl.appendChild(buttonEl3);
+    buttonArrayEl.appendChild(buttonEl4);
 
-    // Grade whether the user response is true
-    function displayGrade(event) {
-        console.log(questionIndex);
-        var correctAnswer = questionArray[questionIndex].correct;
-        console.log(correctAnswer);
-        if (event.target.textContent === correctAnswer) {
-            alert("Correct!! You just got 10 points!!!");
-            // Adjust current score by 10 points
-            currentScore += 10;
-            console.log(currentScore);
-            navigate();
-        } else {
-            alert("Wrong answer!");
-            // Adjust timer by -10 seconds
-            secondsLeft -= 10;
-            navigate();
-        }
-    };
+
     // Listen for answer button click
-    button1El.addEventListener("click", displayGrade);
-    button2El.addEventListener("click", displayGrade);
-    button3El.addEventListener("click", displayGrade);
-    button4El.addEventListener("click", displayGrade);
+    buttonEl1.addEventListener("click", displayGrade);
+    buttonEl2.addEventListener("click", displayGrade);
+    buttonEl3.addEventListener("click", displayGrade);
+    buttonEl4.addEventListener("click", displayGrade);
 }
 
 // Carousel function
@@ -136,7 +143,7 @@ function navigate() {
     // Advance to next question by increasing the questionIndex value
     questionIndex++;
     // Verify condition of next question and 
-    if (questionIndex < questionArray.length && secondsLeft != 0) {
+    if (questionIndex !== questionArray.length) {
         game();
     } else {
         endGame();
@@ -144,13 +151,7 @@ function navigate() {
 }
 
 // Start button listeners
-startBtn.addEventListener("click", game);
-// startBtn.addEventListener("click", startTimer);
-
-
-
-
-// User input of initials
-// input(Please enter your initials)
-
-// button to leaderboard
+startBtn.addEventListener("click", function(){
+    game()
+    startTimer()
+});
