@@ -80,10 +80,10 @@ function game() {
     document.querySelector("#start").style.display = "none";
 
     // Add style to variables
-    button1El.setAttribute("class", "btn btn-primary btn-sm d-block");
-    button2El.setAttribute("class", "btn btn-primary btn-sm d-block");
-    button3El.setAttribute("class", "btn btn-primary btn-sm d-block");
-    button4El.setAttribute("class", "btn btn-primary btn-sm d-block");
+    button1El.classList.add("d-block");
+    button2El.classList.add("d-block");
+    button3El.classList.add("d-block");
+    button4El.classList.add("d-block");
 
     // Clear variable content
     imageEl.innerHTML = "";
