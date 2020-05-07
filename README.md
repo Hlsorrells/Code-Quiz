@@ -7,7 +7,7 @@ This app is a timed coding quiz composed of multiple-choice questions which runs
 
   [Code Quiz](https://hlsorrells.github.io/Code-Quiz/index.html)
 
-  ![Code Quiz Demo](assets/images/CodeQuiz.webm)
+  ![](assets/images/CodeQuiz.gif)
 
 ## Table of Contents
 
