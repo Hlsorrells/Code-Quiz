@@ -9,14 +9,12 @@ function init() {
     score = localStorage.getItem("score");
     user = localStorage.getItem("user");
 
+    ulEl.append(user);
+    ulEl.append(score);
+
+
     console.log(score);
     console.log(user);
 }
 
-init() {
-    // Insert 
-    body.appendChild(score);
-    body.appendChild(user);
-
-
-}
+init() 
