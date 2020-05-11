@@ -3,11 +3,11 @@ var carousel = document.querySelector(".carouselbox");
 var imageEl = document.querySelector(".card-img-top");
 var cardTitleEl = document.querySelector(".card-title");
 var cardTextEl = document.querySelector(".card-text");
-var buttonGroupEl = document.querySelector(".btn-group-vertical");
-var buttonEl1 = document.querySelector("#button1");
-var buttonEl2 = document.querySelector("#button2");
-var buttonEl3 = document.querySelector("#button3");
-var buttonEl4 = document.querySelector("#button4");
+
+// var buttonEl1 = document.querySelector("#button1");
+// var buttonEl2 = document.querySelector("#button2");
+// var buttonEl3 = document.querySelector("#button3");
+// var buttonEl4 = document.querySelector("#button4");
 var startBtn = document.querySelector("#start");
 var timerEL = document.querySelector("#timer");
 
@@ -54,10 +54,10 @@ var questionArray = [
 
 // Timer function set to 1 second interval
 function startTimer() {
-    timer = setInterval(function(){
+    timer = setInterval(function () {
         secondsLeft--;
         timerEL.textContent = "Seconds Left: " + secondsLeft;
-        if(secondsLeft === 0){
+        if (secondsLeft === 0) {
             endGame()
         };
     }, 1000);
@@ -97,7 +97,8 @@ function game() {
     // Hide the start button
     document.querySelector("#start").style.display = "none";
 
-    // Add style to variables
+    // Unhide the answer button group
+    var buttonGroupEl = document.querySelector(".btn-group-vertical");
     buttonGroupEl.classList.remove("d-none")
     buttonGroupEl.classList.add("d-block")
 
@@ -107,28 +108,23 @@ function game() {
     cardTextEl.innerHTML = "";
 
     console.log(questionIndex);
-    // Add content to variables
+
+    // Add content to card
     imageEl.setAttribute("src", questionArray[questionIndex].image);
-    var temp = questionIndex
+    var temp = questionIndex;
     cardTitleEl.innerHTML = "Question #" + (temp + 1);
     cardTextEl.textContent = questionArray[questionIndex].question;
-    buttonEl1.textContent = questionArray[questionIndex].answers[0];
-    buttonEl2.textContent = questionArray[questionIndex].answers[1];
-    buttonEl3.textContent = questionArray[questionIndex].answers[2];
-    buttonEl4.textContent = questionArray[questionIndex].answers[3];
-
-    // Append variable content to DOM elements
-    buttonGroupEl.appendChild(buttonEl1);
-    buttonGroupEl.appendChild(buttonEl2);
-    buttonGroupEl.appendChild(buttonEl3);
-    buttonGroupEl.appendChild(buttonEl4);
-
+    for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
+        var buttonEl = document.querySelectorAll("button.btn-sm")
+        buttonEl[i].textContent = questionArray[questionIndex].answers[i];
+    }
 
     // Listen for answer button click
-    buttonEl1.addEventListener("click", displayGrade);
-    buttonEl2.addEventListener("click", displayGrade);
-    buttonEl3.addEventListener("click", displayGrade);
-    buttonEl4.addEventListener("click", displayGrade);
+    // buttonEl1.addEventListener("click", displayGrade);
+    // buttonEl2.addEventListener("click", displayGrade);
+    // buttonEl3.addEventListener("click", displayGrade);
+    // buttonEl4.addEventListener("click", displayGrade);
+
 }
 
 // Carousel function
@@ -144,7 +140,7 @@ function navigate() {
 }
 
 // Start button listeners
-startBtn.addEventListener("click", function(){
+startBtn.addEventListener("click", function () {
     game()
     startTimer()
 });
