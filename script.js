@@ -3,7 +3,7 @@ var carousel = document.querySelector(".carouselbox");
 var imageEl = document.querySelector(".card-img-top");
 var cardTitleEl = document.querySelector(".card-title");
 var cardTextEl = document.querySelector(".card-text");
-var buttonArrayEl = document.querySelector(".btn-group-vertical");
+var buttonGroupEl = document.querySelector(".btn-group-vertical");
 var buttonEl1 = document.querySelector("#button1");
 var buttonEl2 = document.querySelector("#button2");
 var buttonEl3 = document.querySelector("#button3");
@@ -72,8 +72,8 @@ function endGame() {
     // Sets the seconds left as the final score
     score = secondsLeft;
     // Stores values of user and score to localStorage
-    localStorage.setItem("score", secondsLeft);
     localStorage.setItem("user", user);
+    localStorage.setItem("score", secondsLeft);
 };
 
 // Grade whether the user response is true
@@ -98,15 +98,8 @@ function game() {
     document.querySelector("#start").style.display = "none";
 
     // Add style to variables
-    buttonEl1.classList.remove("d-none");
-    buttonEl2.classList.remove("d-none");
-    buttonEl3.classList.remove("d-none");
-    buttonEl4.classList.remove("d-none");
-    buttonEl1.classList.add("d-block");
-    buttonEl2.classList.add("d-block");
-    buttonEl3.classList.add("d-block");
-    buttonEl4.classList.add("d-block");
-
+    buttonGroupEl.classList.remove("d-none")
+    buttonGroupEl.classList.add("d-block")
 
     // Clear variable content
     imageEl.innerHTML = "";
@@ -125,10 +118,10 @@ function game() {
     buttonEl4.textContent = questionArray[questionIndex].answers[3];
 
     // Append variable content to DOM elements
-    buttonArrayEl.appendChild(buttonEl1);
-    buttonArrayEl.appendChild(buttonEl2);
-    buttonArrayEl.appendChild(buttonEl3);
-    buttonArrayEl.appendChild(buttonEl4);
+    buttonGroupEl.appendChild(buttonEl1);
+    buttonGroupEl.appendChild(buttonEl2);
+    buttonGroupEl.appendChild(buttonEl3);
+    buttonGroupEl.appendChild(buttonEl4);
 
 
     // Listen for answer button click
