@@ -3,13 +3,7 @@ var carousel = document.querySelector(".carouselbox");
 var imageEl = document.querySelector(".card-img-top");
 var cardTitleEl = document.querySelector(".card-title");
 var cardTextEl = document.querySelector(".card-text");
-
-// var buttonEl1 = document.querySelector("#button1");
-// var buttonEl2 = document.querySelector("#button2");
-// var buttonEl3 = document.querySelector("#button3");
-// var buttonEl4 = document.querySelector("#button4");
 var startBtn = document.querySelector("#start");
-var timerEL = document.querySelector("#timer");
 
 // Incremental counter index variables
 var secondsLeft = 60;
@@ -54,6 +48,7 @@ var questionArray = [
 
 // Timer function set to 1 second interval
 function startTimer() {
+    var timerEL = document.querySelector("#timer");
     timer = setInterval(function () {
         secondsLeft--;
         timerEL.textContent = "Seconds Left: " + secondsLeft;
@@ -78,11 +73,8 @@ function endGame() {
 
 // Grade whether the user response is true
 function displayGrade(event) {
-    console.log(questionIndex);
     var correctAnswer = questionArray[questionIndex].correct;
-    console.log(correctAnswer);
     if (event.target.textContent === correctAnswer) {
-        console.log("correct")
         navigate();
     } else {
         // Adjust timer by -10 seconds
@@ -93,7 +85,6 @@ function displayGrade(event) {
 
 // Game Play function
 function game() {
-    console.log(questionIndex, "current index");
     // Hide the start button
     document.querySelector("#start").style.display = "none";
 
@@ -107,24 +98,16 @@ function game() {
     cardTitleEl.innerHTML = "";
     cardTextEl.innerHTML = "";
 
-    console.log(questionIndex);
-
     // Add content to card
     imageEl.setAttribute("src", questionArray[questionIndex].image);
     var temp = questionIndex;
     cardTitleEl.innerHTML = "Question #" + (temp + 1);
     cardTextEl.textContent = questionArray[questionIndex].question;
     for (var i = 0; i < questionArray[questionIndex].answers.length; i++) {
-        var buttonEl = document.querySelectorAll("button.btn-sm")
+        var buttonEl = document.querySelectorAll("button.btn-sm");
         buttonEl[i].textContent = questionArray[questionIndex].answers[i];
+        buttonEl[i].addEventListener("click", displayGrade);
     }
-
-    // Listen for answer button click
-    // buttonEl1.addEventListener("click", displayGrade);
-    // buttonEl2.addEventListener("click", displayGrade);
-    // buttonEl3.addEventListener("click", displayGrade);
-    // buttonEl4.addEventListener("click", displayGrade);
-
 }
 
 // Carousel function
