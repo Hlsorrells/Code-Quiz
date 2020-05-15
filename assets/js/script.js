@@ -18,31 +18,31 @@ var questionArray = [
         question: "Which state only has a single four-year college?",
         answers: ["a. Montana", "b. North Dakota", "c. South Dakota", "d. Wyoming"],
         correct: "d. Wyoming",
-        image: "http://placekitten.com/200/200"
+        image: "assets/images/colorado.jpg"
     },
     {
         question: "Which state has the world's first alpine skiing chairlift?",
         answers: ["a. Montana", "b. Idaho", "c. Utah", "d. Colorado"],
         correct: "b. Idaho",
-        image: "http://placekitten.com/200/200"
+        image: "assets/images/autumn-stream-with-clouds-covering-the-mountains_800.jpg"
     },
     {
         question: "Which state has the lowest population of all fifty states?",
         answers: ["a. Wyoming", "b. Alaska", "c. North Dakota", "d. Montana"],
         correct: "a. Wyoming",
-        image: "http://placekitten.com/200/200"
+        image: "assets/images/mount-jefferson-and-indian-paintbrush-flowers-landscape.jpg"
     },
     {
         question: "Which state has the highest cattle to people ratio?",
         answers: ["a. Montana", "b. Wyoming", "c. South Dakota", "d. Idaho"],
         correct: "c. South Dakota",
-        image: "http://placekitten.com/200/200"
+        image: "assets/images/cloudy-panoramic-landscape-in-yellowstone-national-park.jpg"
     },
     {
         question: "Which state was the first to give women the right to vote?",
         answers: ["a. Utah", "b. Wyoming", "c. Idaho", "d. Colorado"],
         correct: "b. Wyoming",
-        image: "http://placekitten.com/200/200"
+        image: "assets/images/view-of-the-elkhorn-mountain-range_800.jpg"
     },
 ];
 
@@ -63,12 +63,19 @@ function endGame() {
     // Resets the timer interval
     clearInterval(timer);
     // Prompt for user initials
+    
     user = prompt("Please enter your initials here:");
     // Sets the seconds left as the final score
     score = secondsLeft;
     // Stores values of user and score to localStorage
-    localStorage.setItem("user", user);
-    localStorage.setItem("score", secondsLeft);
+    var highScore = JSON.parse(localStorage.getItem('highscore'))
+    if(highScore === null){
+        highScore =[]
+    }   
+    var scoreObj = { "user": user, "score": secondsLeft}
+    highScore.push(scoreObj)
+    localStorage.setItem("highscore", JSON.stringify(highScore));
+
 };
 
 // Grade whether the user response is true
