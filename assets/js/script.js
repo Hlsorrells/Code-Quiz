@@ -3,7 +3,12 @@ var carousel = document.querySelector(".carouselbox");
 var imageEl = document.querySelector(".card-img-top");
 var cardTitleEl = document.querySelector(".card-title");
 var cardTextEl = document.querySelector(".card-text");
+var buttonGroupEl = document.querySelector(".btn-group-vertical");
 var startBtn = document.querySelector("#start");
+var inputLabelEl = document.querySelector("#initialsInputLabel");
+var inputEL = document.querySelector('#initialsInput');
+var continueBtn = document.querySelector("#continue");
+
 
 // Incremental counter index variables
 var secondsLeft = 60;
@@ -62,21 +67,53 @@ function startTimer() {
 function endGame() {
     // Resets the timer interval
     clearInterval(timer);
-    // Prompt for user initials
-    
-    user = prompt("Please enter your initials here:");
-    // Sets the seconds left as the final score
-    score = secondsLeft;
-    // Stores values of user and score to localStorage
-    var highScore = JSON.parse(localStorage.getItem('highscore'))
-    if(highScore === null){
-        highScore =[]
-    }   
-    var scoreObj = { "user": user, "score": secondsLeft}
-    highScore.push(scoreObj)
-    localStorage.setItem("highscore", JSON.stringify(highScore));
 
+    // Hide start button & answer button group
+    startBtn.style.display = "none";
+    buttonGroupEl.classList.remove("d-block");
+    buttonGroupEl.classList.add("d-none");
+
+    // Unhide the Initials Input
+    inputLabelEl.classList.remove("d-none");
+    inputLabelEl.classList.add("d-block");
+    inputEL.classList.remove("d-none");
+    inputEL.classList.add("d-block");
+    continueBtn.classList.remove("d-none");
+    continueBtn.classList.add("d-block");
+
+    // Clear element content
+    imageEl.innerHTML = "";
+    cardTitleEl.innerHTML = "";
+    cardTextEl.innerHTML = "";
+
+    // Add content to card
+    imageEl.setAttribute("src", "assets/images/rocky_mountain_thunderstorms_513975.jpg");
+    cardTitleEl.innerHTML = "Game Results!!!";
+     // Sets the seconds left as the final score
+     score = secondsLeft;
+    cardTextEl.innerHTML = "You have " + score + " points!!";
+
+    // Trigger local storage
+    // localStorage();
 };
+
+// Set user initials and score to local storage
+function local(event) {
+    console.log('test')
+    event.preventDefault()
+    // Retrieve user initials from input box
+    user = document.getElementById("initialsInput").value
+
+    // Stores values of user and score to localStorage
+    var highScore = JSON.parse(localStorage.getItem('highscore'));
+    if (highScore === null) {
+        highScore = []
+    }
+    var scoreObj = { "user": user, "score": secondsLeft };
+    highScore.push(scoreObj);
+    localStorage.setItem("highscore", JSON.stringify(highScore));
+    window.location.assign("leaderboard.html")
+}
 
 // Grade whether the user response is true
 function displayGrade(event) {
@@ -93,14 +130,13 @@ function displayGrade(event) {
 // Game Play function
 function game() {
     // Hide the start button
-    document.querySelector("#start").style.display = "none";
+    startBtn.style.display = "none";
 
     // Unhide the answer button group
-    var buttonGroupEl = document.querySelector(".btn-group-vertical");
-    buttonGroupEl.classList.remove("d-none")
-    buttonGroupEl.classList.add("d-block")
+    buttonGroupEl.classList.remove("d-none");
+    buttonGroupEl.classList.add("d-block");
 
-    // Clear variable content
+    // Clear element content
     imageEl.innerHTML = "";
     cardTitleEl.innerHTML = "";
     cardTextEl.innerHTML = "";
@@ -131,6 +167,6 @@ function navigate() {
 
 // Start button listeners
 startBtn.addEventListener("click", function () {
-    game()
-    startTimer()
+    game();
+    startTimer();
 });
