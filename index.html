@@ -43,6 +43,14 @@
                         the United States? You have 2 minutes to answer 10 questions about the states in this region. Be
                         careful not to pick the wrong answer as it will cost you 10 seconds off the timer! Good Luck!!
                     </p>
+
+                    <!-- Initials Input Form -->
+                    <form onsubmit="local(event)">
+                        <label id="initialsInputLabel" class="d-none">Please type your initials here:</label>
+                        <input type="text" id="initialsInput" class="d-none">
+                        <button type="submit" class="d-none" id="continue" >Submit</button>
+                    </form>
+                    
                 </div>
 
                 <!-- Answer Buttons -->
@@ -56,13 +64,12 @@
                 <!-- Start Button -->
                 <div class="btn-group" role="group" style="width: fit-content; margin: 10px; align-self: center;">
                     <button type="button" class="btn btn-primary btn-lg btn-block" id="start">Start Button</button>
+                
                 </div>
             </div>
 
         </div>
         <br><br>
-        <!-- Footer -->
-
         <!-- Javascript Links to Bootstrap -->
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
             integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -77,9 +84,5 @@
         <!-- Javascript Link -->
         <script src="assets/js/script.js"></script>
     </div>
-
-
-
 </body>
-
 </html>

@@ -27,8 +27,7 @@ updateBoard();
 // Clear the body from the table
 function resetBoard() {
     // Reset local storage values
-    localStorage.setItem("score", "");
-    localStorage.setItem("user", "");
+    localStorage.setItem("highscore", []);
 
     // Remove all rows from table body
     tableBody.remove();
