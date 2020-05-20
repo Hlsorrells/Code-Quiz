@@ -4,7 +4,11 @@ var tableBody = document.querySelector("#scoreArea")
 // Pull recent score stats from local storage
 function updateBoard() {
     // Retrieve local storage values
-    var highscore = JSON.parse(localStorage.getItem("highscore"));
+    var highscore = localStorage.getItem("highscore");
+    if(highscore){
+
+     highscore = JSON.parse(highscore)
+
     highscore = highscore.sort(function (a, b) { return b.score - a.score });
 
     // Create table body under table header
@@ -19,6 +23,7 @@ function updateBoard() {
         trowEl.appendChild(secondCell);
         tableBody.appendChild(trowEl);
     }
+}
 }
 
 // Update the Leader Board Results
