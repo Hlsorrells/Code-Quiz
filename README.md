@@ -1,7 +1,7 @@
 # Code Quiz
 
 ## Description 
-This app is a timed coding quiz composed of multiple-choice questions which runs in the browser and features dynamically updated HTML and CSS powered by JavaScript in addition to being responsive to screen size.
+This app is a timed quiz composed of multiple-choice questions about the Rocky Mountain states. It runs in the browser and features dynamically updated HTML and CSS powered by JavaScript in addition to being responsive to screen size.
 
 ## Deployment
 
@@ -11,32 +11,29 @@ This app is a timed coding quiz composed of multiple-choice questions which runs
 
 ## Table of Contents
 
-  * [Assignment Instructions](#assignment-instructions)
-    * [User Story](#user-story)
-    * [Acceptance Criteria](#acceptance-criteria)
+  * [User Story](#user-story)
+  * [Acceptance Criteria](#acceptance-criteria)
   * [Project Lessons](#project-lessons)
     * [Initial Logic](#initial-logic)
     * [Building Blocks](#building-blocks)
     * [Game Function](#game-function)
+    * [Local Storage](#local-storage)
     * [Future Improvements](#future-improvements)
   * [Authors](#author)
 
-## Assignment Instructions
 
-As you proceed in your career as a web developer, you will probably be asked to complete a coding assessment, which is typically a combination of multiple-choice questions and interactive challenges. Build a timed code quiz with multiple-choice questions. This app will run in the browser and feature dynamically updated HTML and CSS powered by your JavaScript code. It will also feature a clean and polished user interface and be responsive, ensuring that it adapts to multiple screen sizes.
-
-### User Story
+## User Story
 
 ```
-AS A coding bootcamp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
+AS A user interested in Rocky Mountain trivia questions
+I WANT to take a timed trivia quiz about the Rocky Mountain states
+SO THAT I can see how my knowledge of Rocky Mountain states compares to my friends
 ```
 
-### Acceptance Criteria
+## Acceptance Criteria
 
 ```
-GIVEN I am taking a code quiz
+GIVEN I am taking a trivia quiz
 WHEN I click the start button
 THEN a timer starts and I am presented with a question
 WHEN I answer a question
@@ -50,6 +47,8 @@ THEN I can save my initials and score
 ```
 
 ## Project Lessons
+<details>
+    <summary markdown="span">Project Lessons Details</summary>
 
 ### Initial Logic
 My first thing to tackle was building an HTML layout using bootstrap. I selected a card layout that included an image, card title, and card text. From there, I added two divs for buttons: one was for the vertical answer buttons to be appended to from the JS, the other was for the start button that would be hidden once clicked.
@@ -60,8 +59,35 @@ I created some "legos" to play with in the JS file by creating global variables 
 ### Game Function
 After created my event listener for the start button, I started working on the game play function. This took some time as I had to logic out each piece of the game from creating the answer buttons, setting the content of each game card, to grading the cards and adjusting the timer for wrong answers. I learned a valuable lesson during this project, do not put a function inside of another function when I am still learning JavaScript. Originally, I nested the function displayGrade inside of the function game. This caused my question cycle to skip the third question going straight from the second question to the fourth question.
 
+### Local Storage
+This project challenged me to set the local storage while the user was on the results page before transitioning to the leaderboard page. This meant that the user data had to be capture on submit to save to local storage, then retrieved from local storage to build the leaderboard.
+
 ### Future Improvements
 As I did not have the time to fully complete this project, I would like to revisit this application later as I think it could be turned into a very fun game for me and my nephew to play. This application could provide him with a simple game to use like flashcards for his school studies. I hope to expand on this idea as I learn more about building web applications.
+</details>
+
+## Screenshots
+<details>
+    <summary markdown="span">Project Lessons Details</summary>
+
+![Home Page](assets/images/homePage.png)
+
+*Home Page of Game*
+
+![Trivia Question Page](assets/images/gameQuestionPage.png)
+
+*Trivia Question Page*
+
+![Result Page](assets/images/gameResultsPage.png)
+
+*Game Results Page*
+
+![Leaderboard with Initials](assets/images/leaderboardResultsWithInitials.png)
+
+*Leaderboard Page with Game Results*
+
+![Leaderboard Cleared](assets/images/leaderboardResultsCleared.png)
+</details>
 
 ## Author
 [Heather Sorrells](mailto:hlsorrells.dev@gmail.com)

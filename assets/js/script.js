@@ -105,9 +105,11 @@ function local(event) {
     user = document.getElementById("initialsInput").value
 
     // Stores values of user and score to localStorage
-    var highScore = JSON.parse(localStorage.getItem('highscore'));
-    if (highScore === null) {
+    var highScore = localStorage.getItem('highscore');
+    if (!highScore) {
         highScore = []
+    }else{
+        highScore= JSON.parse(highScore)
     }
     var scoreObj = { "user": user, "score": secondsLeft };
     highScore.push(scoreObj);
