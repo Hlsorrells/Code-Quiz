@@ -70,23 +70,23 @@ As I did not have the time to fully complete this project, I would like to revis
 <details>
     <summary markdown="span">Project Lessons Details</summary>
 
-![Home Page](assets/images/homePage.png)
+![Home Page](assets/images/homePage.PNG)
 
 *Home Page of Game*
 
-![Trivia Question Page](assets/images/gameQuestionPage.png)
+![Trivia Question Page](assets/images/gameQuestionPage.PNG)
 
 *Trivia Question Page*
 
-![Result Page](assets/images/gameResultsPage.png)
+![Result Page](assets/images/gameResultsPage.PNG)
 
 *Game Results Page*
 
-![Leaderboard with Initials](assets/images/leaderboardResultsWithInitials.png)
+![Leaderboard with Initials](assets/images/leaderboardResultsWithInitials.PNG)
 
 *Leaderboard Page with Game Results*
 
-![Leaderboard Cleared](assets/images/leaderboardResultsCleared.png)
+![Leaderboard Cleared](assets/images/leaderboardResultsCleared.PNG)
 </details>
 
 ## Author
